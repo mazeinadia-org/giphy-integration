@@ -32,18 +32,28 @@ const Components = () => {
              e.g. changing from search term dogs to cats or type gifs to stickers
              you want to restart the gifs from the beginning and changing a component's key does that
              **/}
-            <Grid key={searchKey} columns={3} width={800} fetchGifs={fetchGifs} />
+            <Grid
+                key={searchKey}
+                columns={2}
+                width={400}
+                fetchGifs={fetchGifs}
+                onGifClick={(gif, e) => {
+                    console.log('gif', gif.url)
+                    e.preventDefault()
+                    addSticky()
+                }}
+            />
         </>
     )
 }
 
-// async function addSticky() {
-//     const stickyNote = await miro.board.createStickyNote({
-//         content: 'Hello, World!',
-//     });
-//
-//     await miro.board.viewport.zoomTo(stickyNote);
-// }
+async function addSticky() {
+    const stickyNote = await miro.board.createStickyNote({
+        content: 'Hello, World!',
+    });
+
+    await miro.board.viewport.zoomTo(stickyNote);
+}
 
 function App() {
 
