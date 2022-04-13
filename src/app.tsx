@@ -47,11 +47,23 @@ const Components = () => {
 }
 
 async function addEmbed(url: string) {
+    const viewPort = await miro.board.viewport.get()
+
+    const size = viewPort.height / 2
+
+    const x = viewPort.x + viewPort.width / 2
+    const y = viewPort.y + viewPort.height / 2
+
+
     const widget = await miro.board.createEmbed({
         url,
+        mode: 'inline',
+        x, y,
+        width: size,
+        height: size,
     });
 
-    await miro.board.viewport.zoomTo(widget);
+
 }
 
 function App() {
