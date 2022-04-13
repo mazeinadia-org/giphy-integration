@@ -43,8 +43,8 @@ img {
 }
 
 .reaction {
-  width: 320px;
-  height: 320px;
+  width: 305px;
+  height: 305px;
 }
 
 .hidden {
@@ -52,12 +52,20 @@ img {
 }
 
 #root {
-  height: 300px;
+  height: calc(100% - 315px);
   overflow: auto;
 }
 
 #autoplay {
-  height: 320px;
+  margin-top: 10px;
+  height: 305px;
   position: relative;
+  background-color: blueviolet;
 }
 
+.miro-giphy-searchbar {
+  padding-botom: 10px
+}
+
+.miro-giphy-grid {
+}

@@ -11,13 +11,8 @@ intervalId = setInterval(async () => {
 	const nextItem = embeds.find(embed => !reviewedGifs.includes(embed.id))
 
 	if (nextItem) {
-		if (autoplay.className === "hidden") {
-			autoplay.className = ""
-		}
 		reviewedGifs.push(nextItem.id)
 		reaction.src = nextItem.url
 
-	} else {
-		autoplay.className = "hidden"
 	}
 }, 2500)

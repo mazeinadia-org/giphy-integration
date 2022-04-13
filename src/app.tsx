@@ -24,8 +24,7 @@ const Components = () => {
     const { fetchGifs, searchKey } = useContext(SearchContext)
     return (
         <>
-            <SearchBar className="miro-giphy-searchbar"/>
-            <br />
+            <SearchBar className="miro-giphy-searchbar" autoFocus/>
             {/**
              key will recreate the component,
              this is important for when you change fetchGifs
@@ -33,6 +32,7 @@ const Components = () => {
              you want to restart the gifs from the beginning and changing a component's key does that
              **/}
             <Grid
+                className="miro-giphy-grid"
                 key={searchKey}
                 columns={2}
                 width={305}
