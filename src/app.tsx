@@ -62,8 +62,6 @@ async function addEmbed(url: string) {
         width: size,
         height: size,
     });
-
-
 }
 
 function App() {
