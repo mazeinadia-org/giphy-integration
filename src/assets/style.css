@@ -19,7 +19,7 @@ body {
   height: 100%;
   line-height: 1.5;
   margin: 0;
-  padding: 2rem;
+  padding: 0 2rem 0 2rem;
 }
 
 .container {
@@ -37,3 +37,8 @@ img {
 .button {
   text-decoration: none;
 }
+
+.miro-giphy-searchbar div {
+  display: none;
+}
+

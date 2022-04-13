@@ -24,8 +24,8 @@ const Components = () => {
     const { fetchGifs, searchKey } = useContext(SearchContext)
     return (
         <>
-            <SearchBar />
-            <SuggestionBar />
+            <SearchBar className="miro-giphy-searchbar"/>
+            <br />
             {/**
              key will recreate the component,
              this is important for when you change fetchGifs
@@ -35,7 +35,7 @@ const Components = () => {
             <Grid
                 key={searchKey}
                 columns={2}
-                width={400}
+                width={305}
                 fetchGifs={fetchGifs}
                 onGifClick={(gif, e) => {
                     e.preventDefault()
