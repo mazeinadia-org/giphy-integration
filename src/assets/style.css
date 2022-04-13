@@ -42,3 +42,22 @@ img {
   display: none;
 }
 
+.reaction {
+  width: 320px;
+  height: 320px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#root {
+  height: 300px;
+  overflow: auto;
+}
+
+#autoplay {
+  height: 320px;
+  position: relative;
+}
+
