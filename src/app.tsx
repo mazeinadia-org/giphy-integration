@@ -38,21 +38,20 @@ const Components = () => {
                 width={400}
                 fetchGifs={fetchGifs}
                 onGifClick={(gif, e) => {
-                    console.log('gif', gif.url)
                     e.preventDefault()
-                    addSticky()
+                    addEmbed(gif.embed_url)
                 }}
             />
         </>
     )
 }
 
-async function addSticky() {
-    const stickyNote = await miro.board.createStickyNote({
-        content: 'Hello, World!',
+async function addEmbed(url: string) {
+    const widget = await miro.board.createEmbed({
+        url,
     });
 
-    await miro.board.viewport.zoomTo(stickyNote);
+    await miro.board.viewport.zoomTo(widget);
 }
 
 function App() {
