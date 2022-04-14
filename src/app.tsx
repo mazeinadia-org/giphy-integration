@@ -47,8 +47,7 @@ const Components = () => {
 }
 
 async function addEmbed(imageUrl: string, url: string) {
-   let size, x, y
-
+    let size, x, y
 
     const embeds = await miro.board.get({type: 'image'})
     if (embeds.length > 0) {
