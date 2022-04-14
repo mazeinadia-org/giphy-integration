@@ -24,7 +24,7 @@ const Components = () => {
     const { fetchGifs, searchKey } = useContext(SearchContext)
     return (
         <>
-            <SearchBar className="miro-giphy-searchbar" autoFocus/>
+            <SearchBar className="miro-giphy-searchbar" autoFocus placeholder="Search GIPHY & send to your team"/>
             {/**
              key will recreate the component,
              this is important for when you change fetchGifs
