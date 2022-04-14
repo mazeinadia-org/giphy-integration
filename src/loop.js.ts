@@ -19,6 +19,7 @@ let isGifPlayIsInProgress = false
 const autoplay = window.document.getElementById('autoplay')
 const reaction = window.document.createElement('img')
 const user = window.document.createElement('div')
+
 reaction.className = "reaction"
 user.className = "user"
 autoplay.prepend(user)
