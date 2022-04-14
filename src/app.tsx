@@ -39,18 +39,18 @@ const Components = () => {
                 fetchGifs={fetchGifs}
                 onGifClick={(gif, e) => {
                     e.preventDefault()
-                    addEmbed(gif.embed_url)
+                    addEmbed(gif.images.original.url, gif.embed_url)
                 }}
             />
         </>
     )
 }
 
-async function addEmbed(url: string) {
+async function addEmbed(imageUrl: string, url: string) {
    let size, x, y
 
 
-    const embeds = await miro.board.get({type: 'embed'})
+    const embeds = await miro.board.get({type: 'image'})
     if (embeds.length > 0) {
         const firstEmbed = embeds[0]
         size = firstEmbed.width
@@ -70,13 +70,20 @@ async function addEmbed(url: string) {
         y = viewPort.y + viewPort.height / 2
     }
 
-    const widget = await miro.board.createEmbed({
-        url,
-        mode: 'inline',
+    // const widget = await miro.board.createEmbed({
+    //     url,
+    //     mode: 'inline',
+    //     x, y,
+    //     width: size,
+    //     height: size,
+    // });
+
+    const image = await miro.board.createImage({
+        url: imageUrl,
         x, y,
         width: size,
-        height: size,
-    });
+        // height: size,
+    })
 }
 
 function App() {

@@ -17,7 +17,7 @@ let intervalId
 let isGifPlayIsInProgress = false
 
 const autoplay = window.document.getElementById('autoplay')
-const reaction = window.document.createElement('iframe')
+const reaction = window.document.createElement('img')
 const user = window.document.createElement('div')
 reaction.className = "reaction"
 user.className = "user"
@@ -25,7 +25,7 @@ autoplay.prepend(user)
 autoplay.prepend(reaction)
 
 intervalId = setInterval(async () => {
-	const embeds = await miro.board.get({type: 'embed'})
+	const embeds = await miro.board.get({type: 'image'})
 	const nextItem = embeds.find(embed => !reviewedGifs.includes(embed.id))
 	user.className = 'user'
 
