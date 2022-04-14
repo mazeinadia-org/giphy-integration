@@ -47,13 +47,28 @@ const Components = () => {
 }
 
 async function addEmbed(url: string) {
-    const viewPort = await miro.board.viewport.get()
+   let size, x, y
 
-    const size = viewPort.height / 2
 
-    const x = viewPort.x + viewPort.width / 2
-    const y = viewPort.y + viewPort.height / 2
+    const embeds = await miro.board.get({type: 'embed'})
+    if (embeds.length > 0) {
+        const firstEmbed = embeds[0]
+        size = firstEmbed.width
+        x = firstEmbed.x
 
+        let maxY = firstEmbed.y
+        embeds.forEach(embed => {
+            if (embed.y > maxY) {maxY = embed.y}
+        })
+        y = maxY + size + 10
+    } else {
+        const viewPort = await miro.board.viewport.get()
+
+        size = viewPort.height / 2
+
+        x = viewPort.x + viewPort.width / 2
+        y = viewPort.y + viewPort.height / 2
+    }
 
     const widget = await miro.board.createEmbed({
         url,
