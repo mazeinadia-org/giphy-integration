@@ -65,11 +65,6 @@ async function addEmbed(url: string) {
 }
 
 function App() {
-
-    React.useEffect(() => {
-        // addSticky();
-    }, []);
-
     return (
         <SearchExperience/>
     );

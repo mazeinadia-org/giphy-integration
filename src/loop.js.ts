@@ -18,21 +18,27 @@ let isGifPlayIsInProgress = false
 
 const autoplay = window.document.getElementById('autoplay')
 const reaction = window.document.createElement('iframe')
+const user = window.document.createElement('div')
 reaction.className = "reaction"
+user.className = "user"
+autoplay.prepend(user)
 autoplay.prepend(reaction)
 
 intervalId = setInterval(async () => {
 	const embeds = await miro.board.get({type: 'embed'})
 	const nextItem = embeds.find(embed => !reviewedGifs.includes(embed.id))
+	user.className = 'user'
 
 	if (nextItem) {
 		if (!isGifPlayIsInProgress) {
-			// @todo set styles
 			isGifPlayIsInProgress = true
+			autoplay.className = 'autoplay'
 		}
 		reviewedGifs.push(nextItem.id)
 		reaction.src = nextItem.url
-		const user = getRandomUser()
+		const userData = getRandomUser()
+		user.innerHTML = userData.name
+		user.className = 'user user-border'
 
 	}
 }, 2500)
