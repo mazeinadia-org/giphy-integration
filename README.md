@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8be7ec9d-2944-4db5-a3be-f052cb5c2d30/deploy-status)](https://app.netlify.com/sites/giphy-integration/deploys)
+
 # Create Miro App
 
 ## How to start:
