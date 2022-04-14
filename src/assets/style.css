@@ -98,6 +98,7 @@ img {
   transition: height linear 1s;
   position: absolute;
   bottom: 0px;
+  pointer-events: none;
 }
 
 .miro-giphy-searchbar {
