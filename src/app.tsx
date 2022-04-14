@@ -46,6 +46,19 @@ const Components = () => {
     )
 }
 
+const users = [
+    {name: 'Seva', avatar: ''},
+    {name: 'Memie', avatar: ''},
+    {name: 'Edu', avatar: ''},
+    {name: 'Juan', avatar: ''},
+    {name: 'Nadia', avatar: ''},
+]
+
+function getRandomUser () {
+    const seed = (Math.random() * users.length).toFixed()
+    return users[seed]
+}
+
 async function addEmbed(imageUrl: string, url: string) {
     let size, x, y
 
@@ -59,7 +72,7 @@ async function addEmbed(imageUrl: string, url: string) {
         embeds.forEach(embed => {
             if (embed.y > maxY) {maxY = embed.y}
         })
-        y = maxY + size + 10
+        y = maxY + size + 20
     } else {
         const viewPort = await miro.board.viewport.get()
 
@@ -76,12 +89,20 @@ async function addEmbed(imageUrl: string, url: string) {
     //     width: size,
     //     height: size,
     // });
-
+    const userName = getRandomUser().name;
     const image = await miro.board.createImage({
+        title: userName,
         url: imageUrl,
         x, y,
+        // width: size,
+        height: size,
+    })
+
+    const text = await miro.board.createText({
+        content: `By ${userName}`,
         width: size,
-        // height: size,
+        x,
+        y: y + size/2 + 10
     })
 }
 
