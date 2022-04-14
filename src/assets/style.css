@@ -54,10 +54,36 @@ img {
 #root {
   height: calc(100% - 315px);
   overflow: auto;
+  position: relative;
 }
 
 #autoplay {
-  position: relative;
+  position: fixed;
+  bottom: 64px;
+  padding: 32px;
+  background: white;
+  left: 0px;
+  box-shadow: 0px -32px 20px rgba(0, 0, 0, 0.67);
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    bottom: -300px;
+    transform: rotate(45deg);
+  }
+
+  to {
+    bottom: 64px;
+    transform: rotate(0deg);
+    width: 100%;
+  }
+}
+
+
+#autoplay iframe {
+  border: none;
 }
 
 .autoplay-init {
@@ -70,10 +96,16 @@ img {
   margin: 5px 0;
   height: 305px;
   transition: height linear 1s;
+  position: absolute;
+  bottom: 0px;
 }
 
 .miro-giphy-searchbar {
-  padding-botom: 10px
+  padding-bottom: 10px;
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+  width: calc( 100% - 64px );
 }
 
 .user {
