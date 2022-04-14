@@ -1,16 +1,3 @@
-const users = [
-	{name: 'Seva', avatar: ''},
-	{name: 'Memie', avatar: ''},
-	{name: 'Edu', avatar: ''},
-	{name: 'Juan', avatar: ''},
-	{name: 'Nadia', avatar: ''},
-]
-
-function getRandomUser () {
-	const seed = (Math.random() * users.length).toFixed()
-	return users[seed]
-}
-
 const reviewedGifs = [];
 let intervalId
 
@@ -39,8 +26,8 @@ intervalId = setInterval(async () => {
 		}
 		reviewedGifs.push(nextItem.id)
 		reaction.src = nextItem.url
-		const userData = getRandomUser()
-		user.innerHTML = userData.name
+
+		user.innerHTML = nextItem.title
 		user.className = 'user user-border'
 
 	}
