@@ -17,6 +17,7 @@ let intervalId
 let isGifPlayIsInProgress = false
 
 const autoplay = window.document.getElementById('autoplay')
+const root = window.document.getElementById('root')
 const reaction = window.document.createElement('img')
 const user = window.document.createElement('div')
 
@@ -34,6 +35,7 @@ intervalId = setInterval(async () => {
 		if (!isGifPlayIsInProgress) {
 			isGifPlayIsInProgress = true
 			autoplay.className = 'autoplay'
+			root.className = 'root-giphy-opened'
 		}
 		reviewedGifs.push(nextItem.id)
 		reaction.src = nextItem.url

@@ -52,9 +52,17 @@ img {
 }
 
 #root {
-  height: calc(100% - 315px);
   overflow: auto;
   position: relative;
+  transition: height 1s linear;
+}
+
+.root-giphy-opened {
+  height: calc(100% - 315px);
+}
+
+.root-giphy-closed {
+  height: 100%;
 }
 
 #autoplay {
